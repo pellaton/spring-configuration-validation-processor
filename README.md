@@ -1,4 +1,4 @@
-# spring-configuration-validation-processor [![Build Status](https://travis-ci.org/pellaton/spring-configuration-validation-processor.png?branch=master)](https://travis-ci.org/pellaton/spring-configuration-validation-processor)
+## spring-configuration-validation-processor [![Build Status](https://travis-ci.org/pellaton/spring-configuration-validation-processor.png?branch=master)](https://travis-ci.org/pellaton/spring-configuration-validation-processor)
 
 This project provides a [Java 6 Annotation processor](http://docs.oracle.com/javase/7/docs/api/javax/annotation/processing/package-summary.html) that emits compiler warnings and errors in case one of the following conditions is encountered in a [@Configuration](http://docs.spring.io/spring/docs/3.2.4.RELEASE/javadoc-api/org/springframework/context/annotation/Configuration.html) class:
 - @Configuration classes must not be final.
@@ -11,7 +11,7 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
 - @Bean methods returning a BeanFactoryPostProcessor should be static.
 - Only @Bean methods returning a BeanFactoryPostProcessor should be static.
 
-#Quick Start
+##Quick Start
 ###Prerequisites
 - Compiler: Java 6 or 7
 - Maven: 3.0 
