@@ -12,10 +12,6 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
 - Only @Bean methods returning a BeanFactoryPostProcessor should be static.
 
 ##Quick Start
-###Prerequisites
-- Compiler: Java 6 or 7
-- Maven: 3.0 
-
 ### Maven
 1. Add the following dependency to your Maven POM:
 
