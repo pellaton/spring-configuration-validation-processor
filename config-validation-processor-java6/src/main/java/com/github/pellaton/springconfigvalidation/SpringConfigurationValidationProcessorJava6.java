@@ -15,7 +15,7 @@
  *   Michael Pellaton
  * *****************************************************************************************************************
  */
-package ch.contrails.springconfigvalidation;
+package com.github.pellaton.springconfigvalidation;
 
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
@@ -23,15 +23,16 @@ import javax.lang.model.SourceVersion;
 
 import com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessor;
 
+
 /**
- * {@link SpringConfigurationValidationProcessor} for Java 7 runtimes.
+ * {@link SpringConfigurationValidationProcessor} for Java 6 runtimes.
  * 
  * @author Michael Pellaton
  * 
  * @see SpringConfigurationValidationProcessor
  */
 @SupportedAnnotationTypes(value = "org.springframework.context.annotation.Configuration")
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
-public class SpringConfigurationValidationProcessorJava7 extends SpringConfigurationValidationProcessor {
+@SupportedSourceVersion(SourceVersion.RELEASE_6)
+public class SpringConfigurationValidationProcessorJava6 extends SpringConfigurationValidationProcessor {
 
 }
