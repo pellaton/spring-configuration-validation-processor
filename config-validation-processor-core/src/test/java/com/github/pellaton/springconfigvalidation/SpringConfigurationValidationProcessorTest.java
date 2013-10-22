@@ -25,8 +25,6 @@ import javax.tools.JavaFileObject;
 
 import org.junit.Test;
 
-import com.github.pellaton.springconfigvalidation.SpringConfigurationMessage;
-import com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessor;
 import com.github.pellaton.springconfigvalidation.util.AnnotationProcessorTestCompiler;
 import com.github.pellaton.springconfigvalidation.util.DiagnosticsAssert;
 
@@ -44,7 +42,7 @@ public class SpringConfigurationValidationProcessorTest {
    */
   @Test
   public void validClass() throws IOException {
-    compileAndAssertNoMessage("/ch/contrails/springconfigvalidation/ValidTestConfiguration");
+    compileAndAssertNoMessage("/com/github/pellaton/springconfigvalidation/ValidTestConfiguration");
   }
 
   /**
@@ -119,7 +117,7 @@ public class SpringConfigurationValidationProcessorTest {
    */
   @Test
   public void multiAnnotationBeanMethod() throws IOException {
-    compileAndAssertNoMessage("/ch/contrails/springconfigvalidation/MultiAnnotationBeanMethodTestConfiguration");
+    compileAndAssertNoMessage("/com/github/pellaton/springconfigvalidation/MultiAnnotationBeanMethodTestConfiguration");
   }
 
   /**
@@ -144,7 +142,7 @@ public class SpringConfigurationValidationProcessorTest {
   private void compileAndAssert(String configurationClass, SpringConfigurationMessage expectedMessage,
       long expectedLineNumber) throws IOException {
     List<Diagnostic<? extends JavaFileObject>> diagnostics = AnnotationProcessorTestCompiler.compileClass(
-        "/ch/contrails/springconfigvalidation/" + configurationClass, new TestSpringConfigurationValidationProcessor());
+        "/com/github/pellaton/springconfigvalidation/" + configurationClass, new TestSpringConfigurationValidationProcessor());
     DiagnosticsAssert.assertContainsSingleMessage(expectedMessage, expectedLineNumber, diagnostics);
   }
 
