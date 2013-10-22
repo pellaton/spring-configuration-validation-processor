@@ -15,11 +15,13 @@
  *   Michael Pellaton
  * *****************************************************************************************************************
  */
-package ch.contrails.springconfigvalidation;
+package com.github.pellaton.springconfigvalidation;
 
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
+
+import com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessor;
 
 /**
  * Test variant of {@link SpringConfigurationValidationProcessor}.

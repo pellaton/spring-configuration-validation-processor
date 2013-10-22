@@ -15,7 +15,7 @@
  *   Michael Pellaton
  * *****************************************************************************************************************
  */
-package ch.contrails.springconfigvalidation.util;
+package com.github.pellaton.springconfigvalidation.util;
 
 import java.io.IOException;
 import java.util.Arrays;

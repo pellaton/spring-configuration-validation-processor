@@ -15,7 +15,7 @@
  *   Michael Pellaton
  * *****************************************************************************************************************
  */
-package ch.contrails.springconfigvalidation.util;
+package com.github.pellaton.springconfigvalidation.util;
 
 import java.util.List;
 import java.util.Locale;
@@ -25,7 +25,7 @@ import javax.tools.JavaFileObject;
 
 import junit.framework.AssertionFailedError;
 
-import ch.contrails.springconfigvalidation.SpringConfigurationMessage;
+import com.github.pellaton.springconfigvalidation.SpringConfigurationMessage;
 
 /**
  * Set of assert methods used on the {@link Diagnostic}s emitted by the Java {@link Compiler}.

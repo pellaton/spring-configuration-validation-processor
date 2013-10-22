@@ -15,7 +15,7 @@
  *   Michael Pellaton
  * *****************************************************************************************************************
  */
-package ch.contrails.springconfigvalidation;
+package com.github.pellaton.springconfigvalidation;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,8 +25,10 @@ import javax.tools.JavaFileObject;
 
 import org.junit.Test;
 
-import ch.contrails.springconfigvalidation.util.AnnotationProcessorTestCompiler;
-import ch.contrails.springconfigvalidation.util.DiagnosticsAssert;
+import com.github.pellaton.springconfigvalidation.SpringConfigurationMessage;
+import com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessor;
+import com.github.pellaton.springconfigvalidation.util.AnnotationProcessorTestCompiler;
+import com.github.pellaton.springconfigvalidation.util.DiagnosticsAssert;
 
 /**
  * Tests for {@link SpringConfigurationValidationProcessor}.

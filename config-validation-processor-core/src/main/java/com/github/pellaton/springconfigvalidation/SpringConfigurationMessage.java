@@ -15,7 +15,7 @@
  *   Michael Pellaton
  * *****************************************************************************************************************
  */
-package ch.contrails.springconfigvalidation;
+package com.github.pellaton.springconfigvalidation;
 
 import javax.tools.Diagnostic.Kind;
 
