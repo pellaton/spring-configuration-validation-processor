@@ -18,9 +18,9 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
   ``` xml
   <dependencies>
       <dependency>
-        <groupId>com.github.pellaton.estol</groupId>
-        <artifactId>estol</artifactId>
-        <version>1.0.0</version>
+        <groupId>com.github.pellaton.config-validation-processor</groupId>
+		    <artifactId>config-validation-processor</artifactId>
+		    <version>3.0.0</version>
       </dependency>
   </dependencies>
   ```
@@ -39,8 +39,8 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
               <target>1.7</target>
               <encoding>UTF-8</encoding>
               <annotationProcessors>
-                <annotationProcessor>ch.contrails.springconfigvalidation.SpringConfigurationValidationProcessorJava7</annotationProcessor>
-                <!-- For Java 6: <annotationProcessor>ch.contrails.springconfigvalidation.SpringConfigurationValidationProcessorJava6</annotationProcessor> -->
+                <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava7</annotationProcessor>
+                <!-- For Java 6: <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava6</annotationProcessor> -->
               </annotationProcessors>
             </configuration>
           </plugin>
