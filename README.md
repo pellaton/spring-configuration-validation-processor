@@ -1,6 +1,6 @@
 ## spring-configuration-validation-processor [![Build Status](https://travis-ci.org/pellaton/spring-configuration-validation-processor.png?branch=master)](https://travis-ci.org/pellaton/spring-configuration-validation-processor)
 
-This project provides a [Java 6 Annotation processor](http://docs.oracle.com/javase/7/docs/api/javax/annotation/processing/package-summary.html) that emits compiler warnings and errors in case one of the following conditions is encountered in a [@Configuration](http://docs.spring.io/spring/docs/3.2.4.RELEASE/javadoc-api/org/springframework/context/annotation/Configuration.html) class:
+This project provides a [Java 6 Annotation processor](http://docs.oracle.com/javase/7/docs/api/javax/annotation/processing/package-summary.html) that emits compiler warnings and errors in case one of the following conditions is encountered in a Spring [@Configuration](http://docs.spring.io/spring/docs/3.2.4.RELEASE/javadoc-api/org/springframework/context/annotation/Configuration.html) class:
 - @Configuration classes must not be final.
 - @Configuration classes must have a visible no-arg constructor.
 - @Configuration class constructors must not be @Autowired.
