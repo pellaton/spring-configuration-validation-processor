@@ -30,6 +30,7 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.util.ElementFilter;
 import javax.lang.model.util.Elements;
@@ -52,6 +53,7 @@ import javax.lang.model.util.Types;
  * [x] Error: Invalid factory method: @Bean methods must not be private.
  * [x] Error: Invalid factory method: @Bean methods must not be final.
  * [x] Error: Invalid factory method: @Bean methods must have a non-void return type.
+ * [x] Error: Invalid factory method: @Bean methods must be declared in classes annotated with @Configuration.
  * [x] Warn:  @Bean methods returning a BeanFactoryPostProcessor should be static.
  * [x] Warn:  Only @Bean methods returning a BeanFactoryPostProcessor should be static.
  * </pre>
@@ -100,9 +102,6 @@ public abstract class SpringConfigurationValidationProcessor extends AbstractPro
         "org.springframework.context.annotation.Configuration");
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
     if (!roundEnv.errorRaised() && !roundEnv.processingOver()) {
@@ -111,28 +110,24 @@ public abstract class SpringConfigurationValidationProcessor extends AbstractPro
     return false;
   }
 
-
   private void processRound(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
     for (TypeElement annotation : annotations) {
       for (Element element : roundEnv.getElementsAnnotatedWith(annotation)) {
-        if (element instanceof TypeElement) {
-          processElement((TypeElement) element);
-        }
+        processElement(element);
       }
     }
   }
 
-  private void processElement(TypeElement typeElement) {
-    for (AnnotationMirror annotation : typeElement.getAnnotationMirrors()) {
+  private void processElement(Element element) {
+    for (AnnotationMirror annotation : element.getAnnotationMirrors()) {
       Element annotationTypeElement = annotation.getAnnotationType().asElement();
+
       if (annotationTypeElement.equals(this.configurationTypeElement)) {
-        List<? extends Element> enclosedElements = typeElement.getEnclosedElements();
+        List<? extends Element> enclosedElements = element.getEnclosedElements();
+        processClass(element, ElementFilter.constructorsIn(enclosedElements));
 
-        processClass(typeElement, ElementFilter.constructorsIn(enclosedElements));
-
-        for (ExecutableElement method : ElementFilter.methodsIn(enclosedElements)) {
-          processMethod(method);
-        }
+      } else if (annotationTypeElement.equals(this.beanTypeElement)) {
+        processBeanMethod((ExecutableElement) element);
       }
     }
   }
@@ -191,24 +186,12 @@ public abstract class SpringConfigurationValidationProcessor extends AbstractPro
     return !constructor.getModifiers().contains(Modifier.PRIVATE);
   }
 
-  private void processMethod(ExecutableElement methodElement) {
-    List<? extends AnnotationMirror> annotationMirrors = methodElement.getAnnotationMirrors();
-
-    if (!annotationMirrors.isEmpty() && containsBeanAnnotation(annotationMirrors)) {
-      processForScope(methodElement);
-      processForFinal(methodElement);
-      processForReturnType(methodElement);
-      processForBFPP(methodElement);
-    }
-  }
-
-  private boolean containsBeanAnnotation(List<? extends AnnotationMirror> annotationMirrors) {
-    for (AnnotationMirror annotationMirror : annotationMirrors) {
-      if (annotationMirror.getAnnotationType().asElement().equals(this.beanTypeElement)) {
-        return true;
-      }
-    }
-    return false;
+  private void processBeanMethod(ExecutableElement methodElement) {
+    processForScope(methodElement);
+    processForFinal(methodElement);
+    processForReturnType(methodElement);
+    processForBFPP(methodElement);
+    processForConfigurationClass(methodElement);
   }
 
   private void processForFinal(ExecutableElement methodElement) {
@@ -237,6 +220,12 @@ public abstract class SpringConfigurationValidationProcessor extends AbstractPro
     }
   }
 
+  private void processForConfigurationClass(ExecutableElement methodElement) {
+    if (!isInConfigurationClass(methodElement)) {
+      printMessage(SpringConfigurationMessage.BEAN_METHOD_NOT_IN_CONFIGURATION, methodElement);
+    }
+  }
+
   private void processForScope(Element methodElement) {
     if (isPrivateMethod(methodElement)) {
       printMessage(SpringConfigurationMessage.BEAN_METHOD_PRIVATE, methodElement);
@@ -253,6 +242,21 @@ public abstract class SpringConfigurationValidationProcessor extends AbstractPro
 
   private boolean isStaticMethod(Element methodElement) {
     return methodElement.getModifiers().contains(Modifier.STATIC);
+  }
+
+  private boolean isInConfigurationClass(ExecutableElement methodElement) {
+    Element enclosingElement = methodElement.getEnclosingElement();
+
+    List<? extends AnnotationMirror> annotationMirrors = enclosingElement.getAnnotationMirrors();
+    for (AnnotationMirror annotationMirror : annotationMirrors) {
+      DeclaredType annotationType = annotationMirror.getAnnotationType();
+
+      if (this.configurationTypeElement.equals(annotationType.asElement())) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   private void printMessage(SpringConfigurationMessage message, Element element, AnnotationMirror annotationMirror) {

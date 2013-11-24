@@ -1,6 +1,6 @@
 /*
  * *****************************************************************************************************************
- * Copyright 2012 Michael Pellaton
+ * Copyright 2013 Stefan Ferstl
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -12,25 +12,24 @@
  * the specific language governing permissions and limitations under the License.
  *
  * Contributors:
- *   Michael Pellaton
+ *   Stefan Ferstl
  * *****************************************************************************************************************
  */
 package com.github.pellaton.springconfigvalidation;
 
-import javax.annotation.processing.SupportedAnnotationTypes;
-import javax.annotation.processing.SupportedSourceVersion;
-import javax.lang.model.SourceVersion;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * {@link SpringConfigurationValidationProcessor} for Java 7 runtimes.
- *
- * @author Michael Pellaton
- *
+ * Invalid configuration class not annotated with {@code @Configuration}.  
+ * 
+ * @author Stefan Ferstl
  * @see SpringConfigurationValidationProcessor
  */
-@SupportedAnnotationTypes({
-  "org.springframework.context.annotation.Configuration", "org.springframework.context.annotation.Bean"})
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
-public class SpringConfigurationValidationProcessorJava7 extends SpringConfigurationValidationProcessor {
-
+public class BeanMethodNotInConfigurationTestConfiguration {
+  
+  @Bean
+  public String someString() {
+    return "HELLO JUNIT";
+  }
 }

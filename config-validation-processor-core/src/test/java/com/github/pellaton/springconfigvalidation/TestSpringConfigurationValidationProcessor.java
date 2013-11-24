@@ -21,12 +21,11 @@ import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 
-import com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessor;
-
 /**
  * Test variant of {@link SpringConfigurationValidationProcessor}.
  */
-@SupportedAnnotationTypes(value = "org.springframework.context.annotation.Configuration")
+@SupportedAnnotationTypes({
+  "org.springframework.context.annotation.Configuration", "org.springframework.context.annotation.Bean"})
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class TestSpringConfigurationValidationProcessor extends SpringConfigurationValidationProcessor {
 
