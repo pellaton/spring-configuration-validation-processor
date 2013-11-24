@@ -138,6 +138,11 @@ public class SpringConfigurationValidationProcessorTest {
     compileAndAssert("StaticBeanMethodTestConfiguration", SpringConfigurationMessage.STATIC_BEAN_METHOD, 33);
   }
 
+  @Test
+  public void beanMethodNotInConfigurationClass() throws IOException {
+    compileAndAssert("BeanMethodNotInConfigurationTestConfiguration",
+        SpringConfigurationMessage.BEAN_METHOD_NOT_IN_CONFIGURATION, 32);
+  }
 
   private void compileAndAssert(String configurationClass, SpringConfigurationMessage expectedMessage,
       long expectedLineNumber) throws IOException {

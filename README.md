@@ -8,6 +8,7 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
 - @Bean methods must not be private.
 - @Bean methods must not be final.
 - @Bean methods must have a non-void return type.
+- @Bean methods must be declared in classes annotated with @Configuration.
 - @Bean methods returning a BeanFactoryPostProcessor should be static.
 - Only @Bean methods returning a BeanFactoryPostProcessor should be static.
 

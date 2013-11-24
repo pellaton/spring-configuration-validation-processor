@@ -21,17 +21,16 @@ import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 
-import com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessor;
-
 
 /**
  * {@link SpringConfigurationValidationProcessor} for Java 6 runtimes.
- * 
+ *
  * @author Michael Pellaton
- * 
+ *
  * @see SpringConfigurationValidationProcessor
  */
-@SupportedAnnotationTypes(value = "org.springframework.context.annotation.Configuration")
+@SupportedAnnotationTypes({
+  "org.springframework.context.annotation.Configuration", "org.springframework.context.annotation.Bean"})
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
 public class SpringConfigurationValidationProcessorJava6 extends SpringConfigurationValidationProcessor {
 
