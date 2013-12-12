@@ -53,7 +53,7 @@ import javax.lang.model.util.Types;
  * [x] Error: Invalid factory method: @Bean methods must not be private.
  * [x] Error: Invalid factory method: @Bean methods must not be final.
  * [x] Error: Invalid factory method: @Bean methods must have a non-void return type.
- * [x] Error: Invalid factory method: @Bean methods must be declared in classes annotated with @Configuration.
+ * [x] Warn: Invalid factory method: @Bean methods should be declared in classes annotated with @Configuration.
  * [x] Warn:  @Bean methods returning a BeanFactoryPostProcessor should be static.
  * [x] Warn:  Only @Bean methods returning a BeanFactoryPostProcessor should be static.
  * </pre>

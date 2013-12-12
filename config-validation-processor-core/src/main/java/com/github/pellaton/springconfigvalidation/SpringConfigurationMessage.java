@@ -45,14 +45,14 @@ public enum SpringConfigurationMessage {
   BEAN_METHOD_RETURNS_VOID(Kind.ERROR,
       "Invalid factory method: @Bean methods must have a non-void return type."),
   BEAN_METHOD_PRIVATE(Kind.ERROR, "Invalid factory method: @Bean methods must not be private."),
-  BEAN_METHOD_NOT_IN_CONFIGURATION(Kind.ERROR,
-      "Invalid factory method: @Bean methods must be declared in classes annotated with @Configuration."),
 
   // warnings on @Bean methods
   STATIC_BEAN_METHOD(Kind.WARNING,
       "Only @Bean methods returning a BeanFactoryPostProcessor should be static."),
   BFPP_BEAN_METHOD_NOT_STATIC(Kind.WARNING,
-      "@Bean methods returning a BeanFactoryPostProcessor should be static.");
+      "@Bean methods returning a BeanFactoryPostProcessor should be static."),
+  BEAN_METHOD_NOT_IN_CONFIGURATION(Kind.WARNING,
+      "Invalid factory method: @Bean methods should be declared in classes annotated with @Configuration.");
 
 
   private final Kind kind;
