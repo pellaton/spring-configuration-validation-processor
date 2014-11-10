@@ -53,6 +53,7 @@
     <module>config-validation-processor-core</module>
     <module>config-validation-processor-java6</module>
     <module>config-validation-processor-java7</module>
+    <module>config-validation-processor-java8</module>
   </modules>
 
   <dependencies>
