@@ -48,7 +48,31 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
       </plugins>
   </build>
   ```
+### Gradle
+Add the following to your gradle file:
+  ```
+configurations {
+    annotationProcessor
+}
 
+task configureAnnotationProcessing(type: JavaCompile, group: 'build', description: 'Processes the @Configuration classes') {
+    source = sourceSets.main.java
+    classpath = configurations.compile + configurations.annotationProcessor
+    options.compilerArgs = [
+            "-proc:only",
+            "-processor", "com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava7"
+    ]
+    destinationDir = buildDir
+}
+
+compileJava {
+    dependsOn configureAnnotationProcessing
+}
+
+dependencies {
+    annotationProcessor 'com.github.pellaton.config-validation-processor:config-validation-processor-java7:3.0.1'
+}
+```
 ### Eclipse
 1. Enable annotation processing and annotation processing in editor in the Eclipse project properties (Java Compiler > Annotation Processing) 
 ![Screenshot](/img/annotationprocessing.png)
@@ -56,7 +80,7 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
 ![Screenshot](/img/factoryath.png)
 
 ### IntelliJ IDEA (Maven Project)
-In IntelliJ IDEA, the annotation processor works out if the box in Maven projects configuring the processor in the compiler plugin configuration.
+In IntelliJ IDEA, the annotation processor works out if the box in Maven projects configuring the processor in the compiler plugin configuration. Unfortunately, this does not work for Gradle projects :-/
 
 ### IntelliJ IDEA (Non Maven Project)
 1. Add the jar file containing the annotation processor to the module libraries
