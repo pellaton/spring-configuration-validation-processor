@@ -52,7 +52,7 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
 Add the following to your gradle file:
   ```
 configurations {
-    annotationProcessor
+      annotationProcessor
 }
 
 task configureAnnotationProcessing(type: JavaCompile, group: 'build', description: 'Processes the @Configuration classes') {
@@ -66,11 +66,11 @@ task configureAnnotationProcessing(type: JavaCompile, group: 'build', descriptio
 }
 
 compileJava {
-    dependsOn configureAnnotationProcessing
+      dependsOn configureAnnotationProcessing
 }
 
 dependencies {
-    annotationProcessor 'com.github.pellaton.config-validation-processor:config-validation-processor-java7:3.0.1'
+      annotationProcessor 'com.github.pellaton.config-validation-processor:config-validation-processor-java7:3.0.1'
 }
 ```
 ### Eclipse
