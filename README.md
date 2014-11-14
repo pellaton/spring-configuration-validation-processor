@@ -48,6 +48,7 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
       </plugins>
   </build>
   ```
+
 ### Gradle
 Add the following to your gradle file:
   ```
@@ -73,6 +74,7 @@ dependencies {
       annotationProcessor 'com.github.pellaton.config-validation-processor:config-validation-processor-java7:3.0.1'
 }
 ```
+
 ### Eclipse
 1. Enable annotation processing and annotation processing in editor in the Eclipse project properties (Java Compiler > Annotation Processing) 
 ![Screenshot](/img/annotationprocessing.png)
