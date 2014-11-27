@@ -98,3 +98,6 @@ In Netbeans, the annotation processor works out if the box in Maven projects con
 1. Enable annotation processing and annotation processing in editor in the project properties
 1. Add the fully qualified class name of the processor to the annotation processors list 
 ![Screenshot](/img/netbeans.png)
+
+# Perform a release
+```$ mvn release:prepare release:perform -Darguments=-Dgpg.passphrase=SECRET```
