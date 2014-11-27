@@ -21,7 +21,7 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
       <dependency>
         <groupId>com.github.pellaton.config-validation-processor</groupId>
 		    <artifactId>config-validation-processor</artifactId>
-		    <version>3.0.0</version>
+		    <version>3.0.7</version>
       </dependency>
   </dependencies>
   ```
@@ -36,11 +36,12 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
             <artifactId>maven-compiler-plugin</artifactId>
             <version>2.3.2</version>
             <configuration>
-              <source>1.7</source>
-              <target>1.7</target>
+              <source>1.8</source>
+              <target>1.8</target>
               <encoding>UTF-8</encoding>
               <annotationProcessors>
-                <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava7</annotationProcessor>
+                <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava8</annotationProcessor>
+                <!-- For Java 7: <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava7</annotationProcessor> -->
                 <!-- For Java 6: <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava6</annotationProcessor> -->
               </annotationProcessors>
             </configuration>
@@ -61,7 +62,7 @@ task configureAnnotationProcessing(type: JavaCompile, group: 'build', descriptio
     classpath = configurations.compile + configurations.annotationProcessor
     options.compilerArgs = [
             "-proc:only",
-            "-processor", "com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava7"
+            "-processor", "com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava8"
     ]
     destinationDir = buildDir
 }
@@ -71,7 +72,7 @@ compileJava {
 }
 
 dependencies {
-      annotationProcessor 'com.github.pellaton.config-validation-processor:config-validation-processor-java7:3.0.1'
+      annotationProcessor 'com.github.pellaton.config-validation-processor:config-validation-processor-java8:3.0.7'
 }
 ```
 
