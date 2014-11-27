@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.github.pellaton.config-validation-processor</groupId>
 		<artifactId>config-validation-processor</artifactId>
-		<version>3.0.2-SNAPSHOT</version>
+		<version>3.0.5-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>config-validation-processor-core</artifactId>
