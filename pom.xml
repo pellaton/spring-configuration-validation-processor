@@ -5,7 +5,7 @@
   <artifactId>config-validation-processor</artifactId>
   <packaging>pom</packaging>
 
-  <version>3.0.5-SNAPSHOT</version>
+  <version>3.0.7-SNAPSHOT</version>
   <name>Spring Configuration Validation Processor</name>
   <description>A Java 6 annotation processor to validate Spring @Configuration classes</description>
   <url>https://github.com/pellaton/spring-configuration-validation-processor</url>
@@ -203,6 +203,13 @@
           <releaseProfiles>deploy-to-sonatype-oss</releaseProfiles>
           <goals>deploy</goals>
         </configuration>
+		<dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
