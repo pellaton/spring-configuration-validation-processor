@@ -31,6 +31,6 @@ import javax.lang.model.SourceVersion;
 @SupportedAnnotationTypes({
   "org.springframework.context.annotation.Configuration", "org.springframework.context.annotation.Bean"})
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
-public class SpringConfigurationValidationProcessorJava7 extends SpringConfigurationValidationProcessor {
+public class SpringConfigurationValidationProcessorJava8 extends SpringConfigurationValidationProcessor {
 
 }
