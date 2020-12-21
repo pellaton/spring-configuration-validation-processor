@@ -20,8 +20,11 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
   <dependencies>
       <dependency>
         <groupId>com.github.pellaton.config-validation-processor</groupId>
-		    <artifactId>config-validation-processor</artifactId>
-		    <version>3.0.7</version>
+        <artifactId>config-validation-processor-java11</artifactId>
+        <!-- For Java 8: <artifactId>config-validation-processor-java8</artifactId> -->
+        <!-- For Java 7: <artifactId>config-validation-processor-java7</artifactId> -->
+        <!-- For Java 6: <artifactId>config-validation-processor-java6</artifactId> -->
+        <version>3.0.7</version>
       </dependency>
   </dependencies>
   ```
@@ -40,7 +43,8 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
               <target>1.8</target>
               <encoding>UTF-8</encoding>
               <annotationProcessors>
-                <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava8</annotationProcessor>
+                <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava11</annotationProcessor>
+                <!-- For Java 8: <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava8</annotationProcessor> -->
                 <!-- For Java 7: <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava7</annotationProcessor> -->
                 <!-- For Java 6: <annotationProcessor>com.github.pellaton.springconfigvalidation.SpringConfigurationValidationProcessorJava6</annotationProcessor> -->
               </annotationProcessors>
