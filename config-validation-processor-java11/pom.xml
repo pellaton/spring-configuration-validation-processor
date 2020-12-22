@@ -10,7 +10,7 @@
 	<artifactId>config-validation-processor-java11</artifactId>
 
 	<name>Spring Configuration Validation Processor for Java 11 Runtimes</name>
-	<description>A Java 6 annotation processor to validate Spring @Configuration classes</description>
+	<description>A Java 11 annotation processor to validate Spring @Configuration classes</description>
 
 	<dependencies>
 		<dependency>
