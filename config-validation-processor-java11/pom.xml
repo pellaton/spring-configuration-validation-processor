@@ -7,10 +7,10 @@
 		<version>3.0.8-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>config-validation-processor-java7</artifactId>
+	<artifactId>config-validation-processor-java11</artifactId>
 
-	<name>Spring Configuration Validation Processor for Java 7 Runtimes</name>
-	<description>A Java 7 annotation processor to validate Spring @Configuration classes</description>
+	<name>Spring Configuration Validation Processor for Java 11 Runtimes</name>
+	<description>A Java 11 annotation processor to validate Spring @Configuration classes</description>
 
 	<dependencies>
 		<dependency>
@@ -26,7 +26,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.4</version>
+				<version>3.1.2</version>
 				<executions>
 					<execution>
 						<id>unpack-dependencies</id>
