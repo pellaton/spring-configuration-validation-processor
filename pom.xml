@@ -201,12 +201,15 @@
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <useReleaseProfile>false</useReleaseProfile>
           <releaseProfiles>deploy-to-sonatype-oss</releaseProfiles>
-          <goals>deploy</goals>
+	  <goals>deploy</goals>
+	  <providerImplementations>
+	    <git>jgit</git>
+	  </providerImplementations>
         </configuration>
         <dependencies>
           <dependency>
             <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-plugin</artifactId>
+            <artifactId>maven-scm-provider-jgit</artifactId>
             <version>1.11.2</version>
           </dependency>
         </dependencies>
