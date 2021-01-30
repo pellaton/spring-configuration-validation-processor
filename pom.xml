@@ -5,7 +5,7 @@
   <artifactId>config-validation-processor</artifactId>
   <packaging>pom</packaging>
 
-  <version>3.0.8-SNAPSHOT</version>
+  <version>3.0.8</version>
   <name>Spring Configuration Validation Processor</name>
   <description>A Java 6 annotation processor to validate Spring @Configuration classes</description>
   <url>https://github.com/pellaton/spring-configuration-validation-processor</url>
@@ -23,7 +23,7 @@
     <connection>scm:git:https://github.com/pellaton/spring-configuration-validation-processor.git</connection>
     <developerConnection>scm:git:https://github.com/pellaton/spring-configuration-validation-processor.git</developerConnection>
     <url>${project.url}</url>
-    <tag>HEAD</tag>
+    <tag>config-validation-processor-3.0.8</tag>
   </scm>
 
   <developers>
