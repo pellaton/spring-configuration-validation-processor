@@ -41,7 +41,7 @@
 
   <properties>
     <hamcrest.version>1.3</hamcrest.version>
-    <java.version>1.6</java.version>
+    <java.version>1.7</java.version>
     <junit.version>4.13.1</junit.version>
     <mockito.version>1.10.19</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,10 +51,10 @@
 
   <modules>
     <module>config-validation-processor-core</module>
-    <module>config-validation-processor-java6</module>
     <module>config-validation-processor-java7</module>
     <module>config-validation-processor-java8</module>
     <module>config-validation-processor-java11</module>
+    <module>config-validation-processor-java17</module>
   </modules>
 
   <dependencies>

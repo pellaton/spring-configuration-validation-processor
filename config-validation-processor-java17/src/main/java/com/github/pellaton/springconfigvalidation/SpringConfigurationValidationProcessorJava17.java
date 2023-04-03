@@ -1,6 +1,6 @@
 /*
  * *****************************************************************************************************************
- * Copyright 2012 Michael Pellaton
+ * Copyright 2014 Michael Pellaton
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -21,17 +21,15 @@ import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 
-
 /**
- * {@link SpringConfigurationValidationProcessor} for Java 6 runtimes.
+ * {@link SpringConfigurationValidationProcessor} for Java 17 runtimes.
  *
  * @author Michael Pellaton
  *
  * @see SpringConfigurationValidationProcessor
  */
-@SupportedAnnotationTypes({
-  "org.springframework.context.annotation.Configuration", "org.springframework.context.annotation.Bean"})
-@SupportedSourceVersion(SourceVersion.RELEASE_6)
-public class SpringConfigurationValidationProcessorJava6 extends SpringConfigurationValidationProcessor {
+@SupportedAnnotationTypes({"org.springframework.context.annotation.Configuration", "org.springframework.context.annotation.Bean"})
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
+public class SpringConfigurationValidationProcessorJava17 extends SpringConfigurationValidationProcessor {
 
 }

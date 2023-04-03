@@ -35,7 +35,7 @@ import javax.tools.ToolProvider;
 import org.springframework.core.io.ClassPathResource;
 
 /**
- * Utility class that compiles a Java class using the {@link Compiler} and an annotation {@link Processor}. This class
+ * Utility class that compiles a Java class using the {@link JavaCompiler} and an annotation {@link Processor}. This class
  * is intended to be used for tests of annotation processors.
  *
  * @author Michael Pellaton
