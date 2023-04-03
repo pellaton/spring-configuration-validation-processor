@@ -25,7 +25,7 @@ import javax.lang.model.SourceVersion;
  * Test variant of {@link SpringConfigurationValidationProcessor}.
  */
 @SupportedAnnotationTypes({"org.springframework.context.annotation.Configuration", "org.springframework.context.annotation.Bean"})
-@SupportedSourceVersion(SourceVersion.RELEASE_11)
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class TestSpringConfigurationValidationProcessor extends SpringConfigurationValidationProcessor {
 
 }

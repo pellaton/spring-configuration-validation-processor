@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.tools.Diagnostic;
+import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
 
 import junit.framework.AssertionFailedError;
@@ -28,7 +29,7 @@ import junit.framework.AssertionFailedError;
 import com.github.pellaton.springconfigvalidation.SpringConfigurationMessage;
 
 /**
- * Set of assert methods used on the {@link Diagnostic}s emitted by the Java {@link Compiler}.
+ * Set of assert methods used on the {@link Diagnostic}s emitted by the {@link JavaCompiler}.
  *
  * @author Michael Pellaton
  */
@@ -65,7 +66,7 @@ public final class DiagnosticsAssert {
       List<Diagnostic<? extends JavaFileObject>> diagnostics) {
 
     if (diagnostics.size() != 1) {
-      throw new AssertionFailedError("Number of diagnostic messages expected <1> but was <" + diagnostics.size() + ">");
+      throw new AssertionFailedError("Number of diagnostic messages expected <1> but was <" + diagnostics.size() + ">, diagnostic messages: " + diagnostics);
     }
 
     Diagnostic<? extends JavaFileObject> diagnostic = diagnostics.get(0);
