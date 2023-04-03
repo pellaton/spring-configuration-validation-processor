@@ -37,7 +37,7 @@ This project provides a [Java 6 Annotation processor](http://docs.oracle.com/jav
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.10.1</version>
+            <version>3.11.0</version>
             <configuration>
               <release>17</release>
               <annotationProcessors>
